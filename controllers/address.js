@@ -20,9 +20,9 @@ class Controller_address {
       })
     } else if ( command === 'add' ) {
     let objAddress = {}
-    objAddress.name = input[0]
-    objAddress.email = input[1]
-    objAddress.phone = input[2]
+    objAddress.street = input[0]
+    objAddress.city = input[1]
+    objAddress.zip_code = +input[2]
       Address.create(objAddress)
       .then(address => {
         View.show(`Successfully add into Addresses`);
