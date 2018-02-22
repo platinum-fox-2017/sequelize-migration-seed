@@ -1,10 +1,11 @@
 {
   "development": {
-    "username": "root",
+    "username": "mac",
     "password": null,
-    "database": "database_development",
+    "database": "challange_kamis",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
