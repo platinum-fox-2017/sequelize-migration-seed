@@ -1,11 +1,12 @@
 const Table = require('cli-table')
 const chalk = require('chalk')
 
-class ContactView {
+class AddressView {
     static display (data){
+        console.log(data)
         let table = new Table ({
             head: Object.keys(data[0]),
-            colWidths: [5, 30, 30, 30, 30, 30]
+            colWidths: [5, 30, 20, 10, 42, 42]
         })
         for (let i = 0; i < data.length; i++){
             table.push(Object.values(data[i]))
@@ -17,4 +18,4 @@ class ContactView {
     }
 }
 
-module.exports = ContactView
+module.exports = AddressView

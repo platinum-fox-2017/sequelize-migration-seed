@@ -1,5 +1,5 @@
 const models = require('../models')
-const view = require('../views/contact.js')
+const view = require('../views/address.js')
 
 class AddressController {
     static run(command, options){
