@@ -1,4 +1,4 @@
-const {Contact, Address} = require('../models')
+const {Contact} = require('../models')
 const View = require('../views/contact')
 class Controller{
     static list(){
