@@ -1,16 +1,16 @@
-const {Addresses} = require('../models')
-const AddressView = require ('../views/addressView.js')
+const {Contacts} = require('../models')
+const ContactView = require ('../views/contactsView.js')
 
 
-class Address {
+class Contact {
   constructor() {
 
   }
 
   static showAll(){
-    Addresses.findAll()
+    Contacts.findAll()
     .then(function(data){
-      AddressView.showAddress(data)
+      ContactView.showContact(data)
       process.exit()
     })
     .catch(function(err){
@@ -19,13 +19,13 @@ class Address {
   }
 
   static showOne(data){
-    Addresses.findOne({
+    Contacts.findOne({
       where :{
         id : data
       }
     })
     .then(function(data){
-      AddressView.showAddress([data])
+      ContactView.showContact([data])
       process.exit()
     })
     .catch(function(err){
@@ -34,10 +34,10 @@ class Address {
   }
 
   static add(input){
-    Addresses.create({
-      street : input[0],
-      city : input[1],
-      zip_code : input[2]
+    Contacts.create({
+      name : input[0],
+      email : input[1],
+      phone : input[2]
     }).then(function(){
       console.log(`data ${input[0]} berhasil dibuat`);
       process.exit()
@@ -48,7 +48,7 @@ class Address {
   }
 
   static delete(data){
-    Addresses.destroy({
+    Contacts.destroy({
       where:{
         id:data
       }
@@ -62,10 +62,10 @@ class Address {
   }
 
   static edit(target,edit){
-    Addresses.update({
-      street : edit[0],
-      city : edit[1],
-      zip_code : edit[2]
+    Contacts.update({
+      name : edit[0],
+      email : edit[1],
+      phone : edit[2]
     },{
       where:{
         id:target
@@ -80,4 +80,4 @@ class Address {
   }
 }
 
-module.exports = Address;
+module.exports = Contact;
