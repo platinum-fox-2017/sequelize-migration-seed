@@ -9,9 +9,6 @@ module.exports = {
     for (var i = 0; i < addressCsv.length - 1; i++) {
       let column = addressCsv[i].split(',');
       arrayAddress.push({
-        id:column[0],
-        street:column[1],
-        city:column[2],
         zipCode: column[3],
         createdAt: new Date(),
         updatedAt: new Date()

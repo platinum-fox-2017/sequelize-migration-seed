@@ -9,7 +9,6 @@ module.exports = {
     for (var i = 0; i < contactCsv.length - 1; i++) {
       let column = contactCsv[i].split(',');
       arrayContact.push({
-        id:column[0],
         name:column[1],
         email:column[2],
         phone: column[3],
