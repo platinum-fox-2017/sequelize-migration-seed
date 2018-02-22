@@ -1,4 +1,3 @@
-const argv = process.argv;
 const Contacts = require('./contacts.js');
 const Addresses = require('./addresses.js');
 
@@ -34,4 +33,4 @@ class Controller {
   }
 }
 
-Controller.command(argv[2],argv[3],argv.slice(4));
+module.exports = Controller;
