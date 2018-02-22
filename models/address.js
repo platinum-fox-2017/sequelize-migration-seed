@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Address = sequelize.define('Address', {
     street: DataTypes.STRING,
-    city: DataTypes.INTEGER,
+    city: DataTypes.STRING,
     zipCode: DataTypes.STRING
   }, {});
   Address.associate = function(models) {

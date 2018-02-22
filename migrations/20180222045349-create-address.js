@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       city: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       zipCode: {
         type: Sequelize.STRING
