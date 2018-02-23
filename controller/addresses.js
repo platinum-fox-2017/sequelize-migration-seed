@@ -15,12 +15,38 @@ class AddressesController {
             case 'delete':
                 return AddressesController.delete(options);
                 break;
+            case 'fullAddress':
+                return AddressesController.fullAddress();
+                break;
+            case 'north-area':
+                return AddressesController.findNorthArea();
+                break;
+            case 'south-area':
+                return AddressesController.findSouthArea();
+                break;
         }
+    }
+
+    static findNorthArea(flag){
+        return Model.Address.findNorthArea();
+    }
+
+    static findSouthArea(flag){
+        return Model.Address.findSouthArea();
+    }
+
+    static fullAddress(){
+        return new Promise((resolve,reject) => {
+            Model.Address.findAll()
+                .then(data_address => {
+                    data_address.forEach(address => address.full_address());
+                });
+        });
     }
 
     static list(){
         return new Promise((resolve, reject) => {
-            Model.Address.findAll({include: {all:true}})
+            Model.Address.findAll({raw:true})
                 .then(data_address => {
                     resolve(data_address);
                 })

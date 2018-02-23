@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     phone: DataTypes.STRING
   }, {});
+
   Contact.associate = function(models) {
     // associations can be defined here
     Contact.hasMany(models.Address);

@@ -15,12 +15,41 @@ class ContactsController {
             case 'delete':
                 return ContactsController.delete(options);
                 break;
+            case 'listWithAddress':
+                return ContactsController.listWithAddress();
+                break;
+            case 'idWithAddress':
+                return ContactsController.idWithAddress(options);
         }
+    }
+
+    static idWithAddress(option){
+        return new Promise((resolve, reject) => {
+            Model.Contact.findAll({raw:true,include:[Model.Address],attributes:["id"],where: {id : option}})
+                .then(data => {
+                    resolve(data);
+                })
+                .catch( err => {
+                    reject(err);
+                })
+        })
+    }
+
+    static listWithAddress(){
+        return new Promise((resolve, reject) => {
+            Model.Contact.findAll({raw: true, include:[Model.Address]})
+                .then(data_contact => {
+                    resolve(data_contact);
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        });
     }
 
     static list(){
         return new Promise((resolve, reject) => {
-            Model.Contact.findAll({include: {all:true}})
+            Model.Contact.findAll({raw:true})
                 .then(data_contact => {
                     resolve(data_contact);
                 })

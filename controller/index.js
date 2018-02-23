@@ -1,6 +1,6 @@
 const Addresses = require('./addresses.js');
 const Contacts = require('./contacts');
-const View = require('../view');
+const View = require('../view/index.js');
 
 class Controller{
     constructor(){
@@ -14,7 +14,7 @@ class Controller{
             case 'contacts':
                 Contacts.handler(this.command,this.options)
                     .then(data => {
-                        View.show_data(data);
+                        View.handler_contact(data);
                     })
                     .catch(err => {
                         View.show_error(err);
@@ -23,7 +23,7 @@ class Controller{
             case 'addresses':
                 Addresses.handler(this.command,this.options)
                     .then(data => {
-                        View.show_data(data);
+                        View.handler_address(data);
                     })
                     .catch(err => {
                         View.show_error(err);
