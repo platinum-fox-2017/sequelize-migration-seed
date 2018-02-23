@@ -11,7 +11,12 @@ class Address {
         for(let i = 1; i < hasilRead.length;i++){
             let obj = {}
             for(let j = 1; j < hasilRead[i].length; j++){
-                obj[hasilRead[0][j]] = hasilRead[i][j].trim()
+                if(j === 3){
+                    obj[hasilRead[0][j]] = Number(hasilRead[i][j].trim())
+                }else{
+                    obj[hasilRead[0][j]] = hasilRead[i][j].trim()
+                }
+                
                 if(j === hasilRead[i].length - 1){
                     obj['createdAt'] = new Date()
                     obj['updatedAt'] = new Date()

@@ -1,5 +1,5 @@
 const {Contacts} = require('./models')
-
+const {Addresses} = require('./models')
 class Controller{
     constructor(){}
 
@@ -38,6 +38,24 @@ class Controller{
             console.log(result)
             Contacts.findAll({raw:true}).then(datasAll=>{
                 console.log(datasAll)
+                process.exit()
+            })
+        })
+    }
+
+    static findIncludeAddress(){
+        Contacts.findAll({raw:true}).then(contactsData=>{
+            const getAddress = contactsData.map(each=>{
+                return new Promise ((resolve,reject)=>{
+                    Addresses.findById(each.id).then(dataAddress=>{
+                        each.Address = dataAddress
+                        resolve(each)
+                    })  
+                })
+            })
+
+            Promise.all(getAddress).then((data)=>{
+                console.log(data)
                 process.exit()
             })
         })

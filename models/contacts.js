@@ -6,10 +6,14 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
+      
     }
   });
+
+  Contacts.associate = function(models) {
+    Contacts.hasMany(models.Addresses,{
+      foreignKey: 'idContact'
+    })
+  }
   return Contacts;
 };
