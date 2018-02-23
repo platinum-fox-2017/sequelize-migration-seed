@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "kevinhimawanhie",
+    "password": "1",
+    "database": "MVC_Sequelize_Migration_Seed",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
